@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inheritence and Prototpe</title>
+</head>
+<body>
+    <pre>
+Q1:Create 2 objects - parent and child. Attach methods to parent and use those methods in child object using parents prototype
+
+Answe:const parent1 = {
+    firstname : 'Aryan',
+    lastname : 'Purty',
+    addres : 'jamshedpur',
+    fullname(){
+        return (`${this.firstname} ${this.lastname}`)
+    }
+
+}
+
+
+const child1 = {
+    __proto__:parent1
+}
+console.log(child1.fullname());
+    </pre>
+    <pre>
+Q2:Write code to explain prototype chaining
+
+Answer:const parent = {
+    firstname : 'Aryan',
+    lastname : 'Purty',
+    addres : 'jamshedpur',
+    fullname(){
+        return (`${this.firstname} ${this.lastname}`)
+    }
+
+}
+
+const child = {
+    __proto__:parent
+}
+const son = {
+    __proto__:child
+}
+
+console.log(son.fullname());
+    </pre>
+    <pre>
+Q3:Add a method to calculate sum of all elements in Array in array's protype, use that method to calculate sum for multiple arrays
+
+Answer:arr = [1, 2, 3, 4]
+arr1 = [3, 2, 5, 4]
+arr2 = [4, 2, 2, 4]
+
+const array = {
+add: function (a){
+    sum=0;
+    for(i=0; i < a.length; i++){
+        sum = sum + a[i]
+    }
+    console.log(sum);
+}
+}
+Array.__proto__=array
+Array.add(arr1)
+    </pre>
+    <pre>
+Q4:Write a JavaScript function to retrieve all the names of object's own and inherited properties.
+
+Answer:var obj = {
+    name : "Aryan",
+    course : "full-stack",
+    college : "BIT",
+    branch : "IT",
+    roll : 5
+}
+result = Object.keys(obj)
+console.log(result);
+    </pre>
+    <script src="./script.js"></script>
+</body>
+</html>
